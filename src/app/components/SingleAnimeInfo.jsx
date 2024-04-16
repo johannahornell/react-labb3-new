@@ -12,9 +12,17 @@ const AnimeInfo = async ({ id }) => {
     console.log(anime)
 
     return (
-        <div>
+        <div className="main-content-wrapper">
             <h1>{anime.title}</h1>
             <p>{anime.synopsis}</p>
+            {/* <iframe
+                width="854"
+                height="480"
+                src={anime.trailer.embed_url}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                autoPlay={false}
+            ></iframe> */}
         </div>
     )
 }

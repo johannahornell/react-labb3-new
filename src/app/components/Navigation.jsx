@@ -62,7 +62,7 @@ const Navigation = () => {
                         </li>
                     </ul>
                 </div>
-                <div className='nav-right'>
+                <div className="nav-right">
                     <ul>
                         <li>
                             <Link
@@ -71,7 +71,12 @@ const Navigation = () => {
                                     pathname == '/randomize' ? 'active' : ''
                                 }
                             >
-                                Randomize <FaDice />
+                                <span>Randomize</span>{' '}
+                                <FaDice
+                                    className="
+                                nav-icon"
+                                    size={'1.4rem'}
+                                />
                             </Link>
                         </li>
                         <li>
@@ -81,7 +86,12 @@ const Navigation = () => {
                                     pathname == '/search' ? 'active' : ''
                                 }
                             >
-                                Search <IoSearchOutline />
+                                <span>Search</span>{' '}
+                                <IoSearchOutline
+                                    className="
+                                nav-icon"
+                                    size={'1.4rem'}
+                                />
                             </Link>
                         </li>
                     </ul>

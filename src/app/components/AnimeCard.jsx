@@ -1,28 +1,47 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import { IoStar } from 'react-icons/io5'
 
 const AnimeCard = ({ anime }) => {
     return (
-        <div className="anime-card" key={anime.mal_id}>
-            <Image
-                src={anime.images.jpg.image_url}
-                alt=""
-                width="225"
-                height="327"
-            />
-            <h3>{anime.title}</h3>
-            {anime.hasOwnProperty('genres') ? (
-                <div>
-                    {anime.genres.map((genre) => (
-                        <span key={genre.mal_id}>{genre.name}</span>
-                    ))}
-                </div>
-            ) : (
-                ''
-            )}
-            {anime.hasOwnProperty('score') ? <p>Rating: {anime.score}</p> : ''}
-            <Link href={`/anime/${anime.mal_id}`}>See more</Link>
-        </div>
+        <Link
+            href={`/anime/${anime.mal_id}`}
+            className="anime-card"
+            key={anime.mal_id}
+        >
+            <div
+                className="anime-image"
+                style={{
+                    backgroundImage: `url(${anime.images.jpg.large_image_url})`
+                }}
+            ></div>
+            <h3>
+                {anime.hasOwnProperty('title_english')
+                    ? anime.title_english
+                    : anime.title}
+            </h3>
+            <div className="info-wrapper">
+                {anime.hasOwnProperty('genres') ? (
+                    <div className="genre">
+                        <span>
+                            {anime.genres[0].name}
+                            {anime.genres.length > 1
+                                ? ', ' + anime.genres[1].name
+                                : ''}
+                        </span>
+                    </div>
+                ) : (
+                    ''
+                )}
+                {anime.hasOwnProperty('score') ? (
+                    <span className="score">
+                        <IoStar />{' '}
+                        {(Math.round(anime.score * 10) / 10).toFixed(1)}
+                    </span>
+                ) : (
+                    ''
+                )}
+            </div>
+        </Link>
     )
 }
 

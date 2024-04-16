@@ -13,10 +13,10 @@ const RecommendedAnime = async () => {
     const animeList = animesFromServer.data.anime
 
     return (
-        <div className="main-content-wrapper">
+        <>
             <h1>Recommended</h1>
             <AnimeList animeList={animeList} />
-        </div>
+        </>
     )
 }
 
