@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from 'next/link'
 
 const fetchAnime = async (id) => {
     const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`)

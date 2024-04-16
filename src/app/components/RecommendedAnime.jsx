@@ -1,7 +1,9 @@
 import AnimeList from './AnimeList'
 
 const fetchAnimes = async () => {
-    const res = await fetch('https://api.jikan.moe/v4/users/jjohannas/favorites')
+    const res = await fetch(
+        'https://api.jikan.moe/v4/users/jjohannas/favorites'
+    )
     const data = await res.json()
     return data
 }

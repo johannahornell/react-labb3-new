@@ -23,7 +23,7 @@ const Navigation = () => {
             }
         >
             <div className="navigation-content">
-                <div className='nav-left'>
+                <div className="nav-left">
                     <h3>
                         <GiFuji size={'1.8rem'} /> <span>Anime</span>
                     </h3>
