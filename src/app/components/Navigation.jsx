@@ -62,7 +62,7 @@ const Navigation = () => {
                         </li>
                     </ul>
                 </div>
-                <div>
+                <div className='nav-right'>
                     <ul>
                         <li>
                             <Link
