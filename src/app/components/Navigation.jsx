@@ -12,7 +12,7 @@ const Navigation = () => {
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
-            setScroll(window.scrollY > 10)
+            setScroll(window.scrollY > 5)
         })
     }, [scroll])
 
@@ -66,9 +66,11 @@ const Navigation = () => {
                     <ul>
                         <li>
                             <Link
-                                href="/randomize"
+                                href="/anime/randomize"
                                 className={
-                                    pathname == '/randomize' ? 'active' : ''
+                                    pathname == '/anime/randomize'
+                                        ? 'active'
+                                        : ''
                                 }
                             >
                                 <span>Randomize</span>{' '}

@@ -43,7 +43,9 @@ const AnimeCard = ({ anime }) => {
                 {anime.hasOwnProperty('score') ? (
                     <span className="score">
                         <IoStar />{' '}
-                        {(Math.round(anime.score * 10) / 10).toFixed(1)}
+                        {anime.score === null
+                            ? '--'
+                            : (Math.round(anime.score * 10) / 10).toFixed(1)}
                     </span>
                 ) : (
                     ''

@@ -1,9 +1,11 @@
-import AnimeInfo from '@/app/components/SingleAnimeInfo'
+import HeaderSingleAnime from '@/app/components/HeaderSingleAnime'
+import SingleAnimeInfo from '@/app/components/SingleAnimeInfo'
 
 const SingleAnimePage = ({ params: { id } }) => {
     return (
         <>
-            <AnimeInfo id={id} />
+            {/* <HeaderSingleAnime id={id} /> */}
+            <SingleAnimeInfo id={id} />
         </>
     )
 }

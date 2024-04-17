@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import HeaderSingleAnime from './HeaderSingleAnime'
 
 const fetchAnime = async (id) => {
     const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
@@ -6,12 +7,13 @@ const fetchAnime = async (id) => {
     return data
 }
 
-const AnimeInfo = async ({ id }) => {
+const SingleAnimeInfo = async ({ id }) => {
     const animeFromServer = await fetchAnime(id)
     const anime = animeFromServer.data
-    console.log(anime)
 
     return (
+        <>
+        <HeaderSingleAnime anime={anime} />
         <div className="main-content-wrapper">
             <h1>{anime.title}</h1>
             <p>{anime.synopsis}</p>
@@ -24,7 +26,8 @@ const AnimeInfo = async ({ id }) => {
                 autoPlay={false}
             ></iframe> */}
         </div>
+        </>
     )
 }
 
-export default AnimeInfo
+export default SingleAnimeInfo

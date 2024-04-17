@@ -11,16 +11,15 @@ const fetchAnime = async () => {
 const HeaderStart = async () => {
     const animeFromServer = await fetchAnime()
     const anime = animeFromServer.data
-    console.log(anime)
 
     const truncate = (input) => {
         return input.length > 270 ? `${input.substring(0, 268)}...` : input
     }
 
     return (
-        <div className="header-start-wrapper">
+        <div className={`header-anime-wrapper anime-${anime.mal_id}`}>
             <div className="overlay"></div>
-            <div className="header-start-content">
+            <div className="header-anime-content">
                 <div
                     className="anime-image"
                     style={{
