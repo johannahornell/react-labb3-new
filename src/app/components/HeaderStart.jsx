@@ -28,7 +28,11 @@ const HeaderStart = async () => {
                 ></div>
                 <div className="information">
                     <span className="year">{anime.year}</span>
-                    <h2>{anime.title_english}</h2>
+                    <h2>
+                        {anime.title_english === null
+                            ? anime.title
+                            : anime.title_english}
+                    </h2>
                     <h3>{anime.title_japanese}</h3>
                     <div className="genre">
                         {anime.genres.map((genre) => (

@@ -14,7 +14,7 @@ const SingleAnimeInfo = async ({ id }) => {
     return (
         <>
         <HeaderSingleAnime anime={anime} />
-        <div className="main-content-wrapper">
+        <div className="main-content-wrapper single">
             <h1>{anime.title}</h1>
             <p>{anime.synopsis}</p>
             {/* <iframe

@@ -47,9 +47,6 @@ const HeaderSingleAnime = ({ anime }) => {
                     }}
                 ></div>
                 <div className="information">
-                    <h4>Synopsis</h4>
-                    <p>{synopsis}</p>
-                    <h4>Genre</h4>
                     <div className="genre">
                         {anime.genres.map((genre) => (
                             <span key={genre.mal_id}>
@@ -58,6 +55,7 @@ const HeaderSingleAnime = ({ anime }) => {
                             </span>
                         ))}
                     </div>
+                    <p>{synopsis}</p>
                 </div>
             </div>
         </div>
