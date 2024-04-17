@@ -47,7 +47,7 @@ const HeaderStart = async () => {
                         </div>
                         <div>
                             <IoStarOutline className="icon" size={'1.4rem'} />{' '}
-                            <span>{anime.score} / 10</span>
+                            <span>{anime.score}</span>
                         </div>
                     </div>
 

@@ -8,12 +8,20 @@ const AnimeCard = ({ anime }) => {
             className="anime-card"
             key={anime.mal_id}
         >
-            <div
-                className="anime-image"
-                style={{
-                    backgroundImage: `url(${anime.images.jpg.large_image_url})`
-                }}
-            ></div>
+            <div>
+                <div
+                    className="anime-image"
+                    style={{
+                        backgroundImage: `url(${anime.images.jpg.large_image_url})`
+                    }}
+                ></div>
+                <div
+                    className="anime-image hover-background-img"
+                    style={{
+                        backgroundImage: `url(${anime.images.jpg.large_image_url})`
+                    }}
+                ></div>
+            </div>
             <h3>
                 {anime.hasOwnProperty('title_english')
                     ? anime.title_english

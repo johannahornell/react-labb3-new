@@ -236,9 +236,21 @@ body {
     .anime-image {
         background-size: cover;
         background-position: center;
+        width: 100%;
         aspect-ratio: 8 / 11;
         border-radius: 6px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15), 0 0 6px 3px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 2;
+
+        &.hover-background-img {
+            filter: blur(20px) saturate(150%);
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            opacity: 0;
+            transition: linear 0.2s;
+        }
     }
 
     h3 {
@@ -263,8 +275,10 @@ body {
     }
 
     &:hover {
-        h3 {
-            text-decoration: underline;
+        .anime-image {
+            &.hover-background-img {
+                opacity: 1;
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 import AnimeList from '@/app/components/AnimeList'
 
 const fetchAnimes = async () => {
-    const res = await fetch('https://api.jikan.moe/v4/top/anime?limit=10')
+    const res = await fetch('https://api.jikan.moe/v4/top/anime')
     const data = await res.json()
     return data
 }
