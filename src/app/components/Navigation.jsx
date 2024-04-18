@@ -66,23 +66,6 @@ const Navigation = () => {
                     <ul>
                         <li>
                             <Link
-                                href="/anime/randomize"
-                                className={
-                                    pathname == '/anime/randomize'
-                                        ? 'active'
-                                        : ''
-                                }
-                            >
-                                <span>Randomize</span>{' '}
-                                <FaDice
-                                    className="
-                                nav-icon"
-                                    size={'1.4rem'}
-                                />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
                                 href="/search"
                                 className={
                                     pathname == '/search' ? 'active' : ''

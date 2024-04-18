@@ -377,6 +377,10 @@ body {
     padding: 0 50px 80px 50px;
     margin: 140px auto 0 auto;
 
+    &.start {
+        margin-top: 80px;
+    }
+
     &.single {
         margin-top: 0;
     }

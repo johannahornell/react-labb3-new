@@ -5,10 +5,8 @@ export default function Home() {
     return (
         <>
             <HeaderStart />
-            <div className="main-content-wrapper">
+            <div className="main-content-wrapper start">
                 <RecommendedAnime />
-                <h1>Cant decided what to watch?</h1>
-                <button>Randomize</button>
             </div>
         </>
     )
