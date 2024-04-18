@@ -1,14 +1,25 @@
-'use client'
+import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi'
 
-const Pagination = ({ onNext, onPrevious, currentPage }) => {
+const Pagination = ({ onNext, onPrevious, currentPage, hasNextPage }) => {
     return (
-        <div>
+        <div className="pagination-wrapper">
             {currentPage > 1 ? (
-                <button onClick={onPrevious}>Previous page</button>
+                <button className="btn btn-border" onClick={onPrevious}>
+                    <FiChevronsLeft className="icon" size={'1.2rem'} />{' '}
+                    <span>Previous page</span>
+                </button>
             ) : (
                 ''
             )}
-            <button onClick={onNext}>Next page</button>
+            <p>{currentPage}</p>
+            {hasNextPage ? (
+                <button className="btn" onClick={onNext}>
+                    <span>Next page</span>{' '}
+                    <FiChevronsRight className="icon" size={'1.2rem'} />
+                </button>
+            ) : (
+                ''
+            )}
         </div>
     )
 }

@@ -14,11 +14,24 @@ body {
 .btn {
     background-color: #00ceff;
     color: #191a1c;
+    font-size: 16px;
     padding: 14px 30px;
     text-decoration: none;
     display: inline-block;
+    border: none;
     border-radius: 30px;
+    cursor: pointer;
     transition: 0.4s;
+
+    &.btn-border {
+        background-color: transparent;
+        color: #00ceff;
+        border: 1px solid #00ceff;
+    }
+
+    span, .icon {
+        vertical-align: middle;
+    }
 
     &:hover {
         background-color: darken(#00ceff, 10%);
@@ -362,7 +375,7 @@ body {
 .main-content-wrapper {
     width: 100%;
     max-width: 1400px;
-    padding: 0 50px;
+    padding: 0 50px 80px 50px;
     margin: 100px auto 0 auto;
 
     &.single {
@@ -373,17 +386,36 @@ body {
         display: flex;
     }
 }
+/* ---------- Pagination  ---------- */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
 
+    .btn {
+        padding: 10px 20px;
+
+        span {
+            font-size: 15px;
+        }
+    }
+
+    p {
+        margin: 0 20px;
+    }
+}
 /* ---------- Animelist  ---------- */
 .anime-list-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 .anime-card {
     color: #ffffff;
     text-decoration: none;
     width: calc(20% - 20px);
+    margin: 0 10px;
     margin-bottom: 40px;
     position: relative;
 

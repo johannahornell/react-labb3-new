@@ -1,31 +1,40 @@
 'use client'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import AnimeList from '@/app/components/AnimeList'
 import Pagination from '@/app/components/Pagination'
 
 const TopRatedPage = () => {
-    const [topAnime, setTopAnime] = useState([])
+    const [topAnimes, setTopAnimes] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
+    const [hasNextPage, setHasNextPage] = useState(true)
 
     const getNextPage = async () => {
         const pageToload = currentPage + 1
         const animesFromServer = await fetchTopAnimes(pageToload)
-        setTopAnime(animesFromServer.data)
+
+        setTopAnimes(animesFromServer.data)
         setCurrentPage(pageToload)
+
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
+
     const getPreviousPage = async () => {
         const pageToload = currentPage - 1
         const animesFromServer = await fetchTopAnimes(pageToload)
-        setTopAnime(animesFromServer.data)
+
+        setTopAnimes(animesFromServer.data)
         setCurrentPage(pageToload)
+
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
+
     useEffect(() => {
-        const getTopAnime = async () => {
+        const getTopAnimes = async () => {
             const animesFromServer = await fetchTopAnimes(1)
-            setTopAnime(animesFromServer.data)
+            setTopAnimes(animesFromServer.data)
         }
 
-        getTopAnime()
+        getTopAnimes()
     }, [])
 
     const fetchTopAnimes = async (page) => {
@@ -33,20 +42,22 @@ const TopRatedPage = () => {
             `https://api.jikan.moe/v4/top/anime?page=${page}&limit=25`
         )
         const data = await res.json()
+        console.log(data)
+
+        setHasNextPage(data.pagination.has_next_page)
+
         return data
     }
-    // const animesFromServer = await fetchTopAnimes(1)
-    // const animeList = animesFromServer.data
-    // console.log(animesFromServer.pagination)
 
     return (
         <div className="main-content-wrapper">
             <h1>Top rated</h1>
-            <AnimeList animeList={topAnime} />
+            <AnimeList animeList={topAnimes} />
             <Pagination
                 onNext={getNextPage}
                 onPrevious={getPreviousPage}
                 currentPage={currentPage}
+                hasNextPage={hasNextPage}
             />
         </div>
     )
