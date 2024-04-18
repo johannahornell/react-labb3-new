@@ -156,6 +156,18 @@ body {
     &.anime-33352 {
         background-image: url('../../public/violet-evergarden-background2.jpg');
     }
+    /* Attack on Titan background  */
+    &.anime-16498 {
+        background-image: url('../../public/attack-on-titan-background.jpg');
+    }
+    /* Vinland Saga background  */
+    &.anime-37521 {
+        background-image: url('../../public/vinland-saga-background.jpg');
+    }
+    /* Haikyu!! background  */
+    &.anime-20583 {
+        background-image: url('../../public/haikyu-background.jpg');
+    }
 
     .overlay {
         background-color: rgba(0, 0, 0, 0.75);
@@ -343,6 +355,10 @@ body {
 
     &.single {
         margin-top: 0;
+    }
+
+    .anime-info-content {
+        display: flex;
     }
 }
 

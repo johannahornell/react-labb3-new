@@ -33,7 +33,7 @@ const Navigation = () => {
                                 href="/"
                                 className={pathname == '/' ? 'active' : ''}
                             >
-                                Recommended
+                                Home
                             </Link>
                         </li>
                         <li>

@@ -1,9 +1,6 @@
-import Link from 'next/link'
 import { BsDot } from 'react-icons/bs'
-import { IoTimeOutline, IoStar } from 'react-icons/io5'
 
 const HeaderSingleAnime = ({ anime }) => {
-    console.log(anime)
     const genresArray = []
     anime.genres.map((genre) => genresArray.push('genre-' + genre.mal_id))
     const synopsis = anime.synopsis.replace('[Written by MAL Rewrite]', '')
@@ -23,20 +20,37 @@ const HeaderSingleAnime = ({ anime }) => {
                                 ? anime.title
                                 : anime.title_english}
                         </h1>
-                        <h3>Original title: {anime.title_japanese}</h3>
+                        <h3>
+                            Original title:{' '}
+                            {anime.title_japanese === null
+                                ? anime.title
+                                : anime.title_japanese}
+                        </h3>
                     </div>
                     <div className="stats-box">
                         <div>
                             <p>Score</p>
-                            <span>{anime.score}</span>
+                            <span>
+                                {anime.score === null
+                                    ? '--'
+                                    : (
+                                          Math.round(anime.score * 10) / 10
+                                      ).toFixed(1)}
+                            </span>
                         </div>
                         <div>
                             <p>Rank</p>
-                            <span>#{anime.rank}</span>
+                            <span>
+                                {anime.rank === null ? '--' : '#' + anime.rank}
+                            </span>
                         </div>
                         <div>
                             <p>Popularity</p>
-                            <span>#{anime.popularity}</span>
+                            <span>
+                                {anime.popularity === null
+                                    ? '--'
+                                    : '#' + anime.popularity}
+                            </span>
                         </div>
                     </div>
                 </div>
