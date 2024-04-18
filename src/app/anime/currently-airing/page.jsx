@@ -7,6 +7,7 @@ const CurrentlyAiringPage = () => {
     const [currentAnimes, setCurrentAnimes] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [hasNextPage, setHasNextPage] = useState(true)
+    const [loading, setLoading] = useState(true)
 
     const getNextPage = async () => {
         const pageToload = currentPage + 1
@@ -45,6 +46,7 @@ const CurrentlyAiringPage = () => {
         const animeData = data.data
 
         setHasNextPage(data.pagination.has_next_page)
+        setLoading(false)
 
         // Remove duplicates
         const ids = animeData.map(({ mal_id }) => mal_id)
@@ -57,14 +59,22 @@ const CurrentlyAiringPage = () => {
 
     return (
         <div className="main-content-wrapper">
-            <h1>Currently airing</h1>
-            <AnimeList animeList={currentAnimes} />
-            <Pagination
-                onNext={getNextPage}
-                onPrevious={getPreviousPage}
-                currentPage={currentPage}
-                hasNextPage={hasNextPage}
-            />
+            <h1>Anime - Currently airing</h1>
+            {loading ? (
+                <div className="loader-wrapper">
+                    <div className="loader"></div>
+                </div>
+            ) : (
+                <>
+                    <AnimeList animeList={currentAnimes} />
+                    <Pagination
+                        onNext={getNextPage}
+                        onPrevious={getPreviousPage}
+                        currentPage={currentPage}
+                        hasNextPage={hasNextPage}
+                    />
+                </>
+            )}
         </div>
     )
 }

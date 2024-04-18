@@ -7,6 +7,7 @@ const TopRatedPage = () => {
     const [topAnimes, setTopAnimes] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [hasNextPage, setHasNextPage] = useState(true)
+    const [loading, setLoading] = useState(true)
 
     const getNextPage = async () => {
         const pageToload = currentPage + 1
@@ -42,23 +43,31 @@ const TopRatedPage = () => {
             `https://api.jikan.moe/v4/top/anime?page=${page}&limit=25`
         )
         const data = await res.json()
-        console.log(data)
 
         setHasNextPage(data.pagination.has_next_page)
+        setLoading(false)
 
         return data
     }
 
     return (
         <div className="main-content-wrapper">
-            <h1>Top rated</h1>
-            <AnimeList animeList={topAnimes} />
-            <Pagination
-                onNext={getNextPage}
-                onPrevious={getPreviousPage}
-                currentPage={currentPage}
-                hasNextPage={hasNextPage}
-            />
+            <h1>Anime - Top rated</h1>
+            {loading ? (
+                <div className="loader-wrapper">
+                    <div className="loader"></div>
+                </div>
+            ) : (
+                <>
+                    <AnimeList animeList={topAnimes} />
+                    <Pagination
+                        onNext={getNextPage}
+                        onPrevious={getPreviousPage}
+                        currentPage={currentPage}
+                        hasNextPage={hasNextPage}
+                    />
+                </>
+            )}
         </div>
     )
 }
