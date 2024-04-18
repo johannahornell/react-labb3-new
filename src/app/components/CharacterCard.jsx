@@ -1,17 +1,17 @@
 import Image from 'next/image'
 
 const CharacterCard = ({ character }) => {
-  return (
-    <div>
-        <h4>{character.character.name}</h4>
-        <Image
-        src={character.character.images.jpg.image_url}
-        width={225}
-        height={350}
-        alt="Picture of character"
-        />
-    </div>
-  )
+    return (
+        <div>
+            <Image
+                src={character.character.images.jpg.image_url}
+                width={145}
+                height={225}
+                alt="Picture of character"
+            />
+            <h4>{character.character.name}</h4>
+        </div>
+    )
 }
 
 export default CharacterCard

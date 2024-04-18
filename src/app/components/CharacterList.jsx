@@ -1,4 +1,4 @@
-import CharacterCard from "./CharacterCard"
+import CharacterCard from './CharacterCard'
 
 const fetchAnimeCharacters = async (id) => {
     const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/characters`)
@@ -9,13 +9,21 @@ const fetchAnimeCharacters = async (id) => {
 const CharacterList = async ({ id }) => {
     const charactersFromServer = await fetchAnimeCharacters(id)
     const charactersList = charactersFromServer.data
-    // console.log(charactersList)
+
+    const charactersByFavorite = charactersList.sort((a, b) => b.favorites - a.favorites)
+
+    const mainCharacters = charactersList.filter(
+        (character) => character.role === 'Main'
+    )
 
     return (
         <div className="character-list-wrapper">
             <h2>Characters</h2>
-            {charactersList.map((character) => (
-                character.role === "Main" ? <CharacterCard key={character.character.mal_id} character={character} /> : ""
+            {charactersByFavorite.slice(0, 10).map((character) => (
+                <CharacterCard
+                    key={character.character.mal_id}
+                    character={character}
+                />
             ))}
         </div>
     )

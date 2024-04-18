@@ -136,35 +136,34 @@ body {
     background-size: cover;
     position: relative;
 
-    /* Action background */
-    &.genre-1 {
-
-    }
-    /* Adventure background */
-    &.genre-2 {
-
-    }
-    /* Drama background */
-    &.genre-8 {
-
-    }
-    /* Fantasy background */
-    &.genre-10 {
-
+    /* Drama & Slice of life background */
+    &.genre-8, &.genre-36 {
+        background-image: url('../../public/drama-background.png');
     }
     /* Mystery background  */
     &.genre-7 {
-
+        background-image: url('../../public/mystery-background2.jpg');
     }
     /* Romance background  */
     &.genre-22 {
-        background-image: url('../../public/romance-background.png');
+        background-image: url('../../public/romance-background.jpg');
     }
     /* Sci-Fi background  */
     &.genre-24 {
-
+        background-image: url('../../public/sci-fi-background.jpg');
     }
-
+    /* Adventure background */
+    &.genre-2 {
+        background-image: url('../../public/adventure-background.jpg');
+    }
+    /* Fantasy background */
+    &.genre-10 {
+        background-image: url('../../public/fantasy-background.png');
+    }
+    /* Action background */
+    &.genre-1 {
+        background-image: url('../../public/action-background.jpg');
+    }
     /* Violet Evergarden background  */
     &.anime-33352 {
         background-image: url('../../public/violet-evergarden-background2.jpg');
@@ -382,13 +381,30 @@ body {
         margin-top: 0;
     }
 
-    .anime-info-content {
-        display: flex;
-    }
-
     h1 {
         text-align: center;
         margin-bottom: 30px;
+    }
+}
+/* ---------- Single anime info  ---------- */
+.anime-info-content {
+    background-color: #191a1c;
+    display: flex;
+    border-radius: 10px;
+
+    .info-sidebar {
+        width: 320px;
+        margin-right: 50px;
+    }
+
+    .character-list-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1;
+
+        h2 {
+            width: 100%;
+        }
     }
 }
 /* ---------- Pagination  ---------- */
@@ -473,8 +489,8 @@ body {
         }
     }
 }
-/* ---------- Loader  ---------- */
 
+/* ---------- Loader  ---------- */
 .loader-wrapper {
     display: flex;
     justify-content: center;
