@@ -23,12 +23,12 @@ const AnimeCard = ({ anime }) => {
                 ></div>
             </div>
             <h3>
-                {anime.hasOwnProperty('title_english')
+                {anime.hasOwnProperty('title_english') && anime.title_english
                     ? anime.title_english
                     : anime.title}
             </h3>
             <div className="info-wrapper">
-                {anime.hasOwnProperty('genres') ? (
+                {anime.hasOwnProperty('genres') && anime.genres.length ? (
                     <div className="genre">
                         <span>
                             {anime.genres[0].name}
