@@ -3,7 +3,9 @@ import { BsDot } from 'react-icons/bs'
 const HeaderSingleAnime = ({ anime }) => {
     const genresArray = []
     anime.genres.map((genre) => genresArray.push('genre-' + genre.mal_id))
-    const synopsis = anime.synopsis.replace('[Written by MAL Rewrite]', '')
+    const synopsis = anime.synopsis
+        ? anime.synopsis.replace('[Written by MAL Rewrite]', '')
+        : 'No synopsis information has been added to this title.'
 
     return (
         <div

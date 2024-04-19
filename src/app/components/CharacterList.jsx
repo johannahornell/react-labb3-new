@@ -17,12 +17,16 @@ const CharacterList = async ({ id }) => {
     return (
         <div className="character-list-wrapper">
             <h2>Characters</h2>
-            {charactersByFavorite.slice(0, 10).map((character) => (
-                <CharacterCard
-                    key={character.character.mal_id}
-                    character={character}
-                />
-            ))}
+            {charactersList.length
+                ? charactersByFavorite
+                      .slice(0, 10)
+                      .map((character) => (
+                          <CharacterCard
+                              key={character.character.mal_id}
+                              character={character}
+                          />
+                      ))
+                : 'No characters found'}
         </div>
     )
 }

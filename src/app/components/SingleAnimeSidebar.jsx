@@ -1,9 +1,18 @@
-import Link from 'next/link'
+import RelatedAnime from './RelatedAnime'
 
-const SingleAnimeSidebar = ({ anime }) => {
-    console.log(anime)
+const fetchRelatedAnime = async (id) => {
+    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/relations`)
+    const data = await res.json()
+    return data
+}
+
+const SingleAnimeSidebar = async ({ anime }) => {
+    const relatedAnimeFromServer = await fetchRelatedAnime(anime.mal_id)
+    const relatedAnime = relatedAnimeFromServer.data
+
     return (
         <div className="sidebar">
+            <h2>Information</h2>
             <p>
                 <span className="info-label">Type</span>
                 {anime.type ? <span>{anime.type}</span> : 'Unknown'}
@@ -65,21 +74,8 @@ const SingleAnimeSidebar = ({ anime }) => {
                           </span>
                       ))}
             </p>
-
-            <p>
-                <span className="info-label">Producers</span>{' '}
-                {anime.producers.length === 0
-                    ? 'None found'
-                    : anime.producers.map((producer, index) => (
-                          <span key={producer.mal_id}>
-                              {(index ? ', ' : '') + producer.name}
-                          </span>
-                      ))}
-            </p>
-
-            <Link href={anime.url} className="btn" target="_blank">
-                View on MyanimeList
-            </Link>
+            <hr></hr>
+            <RelatedAnime id={anime.mal_id} />
         </div>
     )
 }
