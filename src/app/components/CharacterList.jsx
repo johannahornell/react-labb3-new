@@ -10,10 +10,8 @@ const CharacterList = async ({ id }) => {
     const charactersFromServer = await fetchAnimeCharacters(id)
     const charactersList = charactersFromServer.data
 
-    const charactersByFavorite = charactersList.sort((a, b) => b.favorites - a.favorites)
-
-    const mainCharacters = charactersList.filter(
-        (character) => character.role === 'Main'
+    const charactersByFavorite = charactersList.sort(
+        (a, b) => b.favorites - a.favorites
     )
 
     return (

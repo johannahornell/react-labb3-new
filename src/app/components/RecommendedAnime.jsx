@@ -14,7 +14,7 @@ const RecommendedAnime = async () => {
 
     return (
         <>
-            <h1>Johanna recommends</h1>
+            <h1>Recommendations</h1>
             <AnimeList animeList={animeList} />
         </>
     )

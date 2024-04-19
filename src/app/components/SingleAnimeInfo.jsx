@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import HeaderSingleAnime from './HeaderSingleAnime'
 import SingleAnimeSidebar from './SingleAnimeSidebar'
+import Trailer from './Trailer'
 import CharacterList from './CharacterList'
 
 const fetchAnime = async (id) => {
@@ -19,15 +19,14 @@ const SingleAnimeInfo = async ({ id }) => {
             <div className="main-content-wrapper single">
                 <div className="anime-info-content">
                     <SingleAnimeSidebar anime={anime} />
-                    {/* <iframe
-                    width="854"
-                    height="480"
-                    src={anime.trailer.embed_url}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    autoPlay={false}
-                ></iframe> */}
-                    <CharacterList id={id} />
+                    <div className="content">
+                        {anime.trailer.youtube_id ? (
+                            <Trailer trailerInfo={anime.trailer} />
+                        ) : (
+                            ''
+                        )}
+                        <CharacterList id={id} />
+                    </div>
                 </div>
             </div>
         </>

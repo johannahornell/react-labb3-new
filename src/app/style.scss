@@ -379,6 +379,10 @@ body {
 
     &.start {
         margin-top: 80px;
+
+        h1 {
+            text-align: left;
+        }
     }
 
     &.single {
@@ -396,20 +400,44 @@ body {
     display: flex;
     border-radius: 10px;
 
-    .info-sidebar {
+    .sidebar {
         width: 320px;
         margin-right: 50px;
-    }
+        padding: 30px 0 30px 30px;
 
-    .character-list-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        flex: 1;
+        p {
+            margin-top: 0;
+            margin-bottom: 20px;
 
-        h2 {
-            width: 100%;
+            .info-label {
+                display: block;
+                font-size: 14px;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+
+            }
+        }
+
+        .btn {
+            padding: 10px 15px;
         }
     }
+
+    .content {
+        flex: 1;
+
+        .character-list-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            flex: 1;
+
+            h2 {
+                width: 100%;
+            }
+        }
+    }
+
+
 }
 /* ---------- Pagination  ---------- */
 .pagination-wrapper {
@@ -493,7 +521,91 @@ body {
         }
     }
 }
+/* ---------- Trailer  ---------- */
+.trailer-wrapper {
+    .thumbnail-wrapper {
+        background-size: cover;
+        background-position: center;
+        width: 854px;
+        aspect-ratio: 16 / 9;
+        position: relative;
+        border-radius: 10px;
 
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            cursor: pointer;
+
+            .play-btn {
+                background-color: #00ceff;
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-left: 5px;
+                box-shadow: 0 0 25px 2px rgba(0, 0, 0, 0.3);
+                transition: 0.4s;
+
+                &:hover {
+                    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.35);
+                }
+            }
+
+
+        }
+    }
+}
+/* ---------- Trailer popup  ---------- */
+.popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background-color: rgb(0 0 0 / 76%);
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    &.open {
+        display: flex;
+    }
+
+    .popup {
+        height: 50vh;
+        aspect-ratio: 16 / 9;
+
+        .popup-video {
+            border-radius: 10px;
+        }
+    }
+
+    .close-popup {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 20px;
+        cursor: pointer;
+        transition: 0.4s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
 /* ---------- Loader  ---------- */
 .loader-wrapper {
     display: flex;

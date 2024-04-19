@@ -12,6 +12,12 @@ const nextConfig = {
                 hostname: 'cdn.myanimelist.net',
                 port: '',
                 pathname: '/images/**'
+            },
+            {
+                protocol: 'https',
+                hostname: 'img.youtube.com',
+                port: '',
+                pathname: '/**'
             }
         ]
     },
