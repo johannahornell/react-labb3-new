@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { GiFuji } from 'react-icons/gi'
 import { IoTelescope, IoSearchOutline } from 'react-icons/io5'
-import { FaDice } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
 
 const Navigation = () => {
@@ -24,9 +23,14 @@ const Navigation = () => {
         >
             <div className="navigation-content">
                 <div className="nav-left">
-                    <h3>
-                        <GiFuji size={'1.8rem'} /> <span>Anime</span>
-                    </h3>
+                    <Link href="/" className="logo-wrapper">
+                        <IoTelescope size={'1.8rem'} />
+                        <div className="logo-text">
+                            <h4>Explore</h4>
+                            <h3>Anime</h3>
+                        </div>
+                    </Link>
+
                     <ul>
                         <li>
                             <Link

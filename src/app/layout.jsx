@@ -1,4 +1,4 @@
-import { Inter, Poppins } from 'next/font/google'
+import { Inter, Poppins, Viga } from 'next/font/google'
 import './style.scss'
 import Navigation from './components/Navigation'
 
@@ -7,6 +7,11 @@ const poppins = Poppins({
     weight: ['500', '600', '700'],
     subsets: ['latin'],
     variable: '--font-poppins'
+})
+const viga = Viga({
+    weight: ['400'],
+    subsets: ['latin'],
+    variable: '--font-viga'
 })
 
 export const metadata = {
@@ -17,7 +22,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} ${poppins.variable}`}>
+            <body
+                className={`${inter.variable} ${poppins.variable} ${viga.variable}`}
+            >
                 <Navigation />
                 {children}
             </body>

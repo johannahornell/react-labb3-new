@@ -52,7 +52,8 @@ const TopRatedPage = () => {
 
     return (
         <div className="main-content-wrapper">
-            <h1>Anime - Top rated</h1>
+            <h1>Top rated</h1>
+            <hr></hr>
             {loading ? (
                 <div className="loader-wrapper">
                     <div className="loader"></div>

@@ -16,7 +16,7 @@ const CharacterList = async ({ id }) => {
 
     return (
         <div className="character-list-wrapper">
-            <h2>Characters</h2>
+            <h2>Top characters</h2>
             {charactersList.length
                 ? charactersByFavorite
                       .slice(0, 10)

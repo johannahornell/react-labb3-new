@@ -59,7 +59,8 @@ const CurrentlyAiringPage = () => {
 
     return (
         <div className="main-content-wrapper">
-            <h1>Anime - Currently airing</h1>
+            <h1>Currently airing</h1>
+            <hr></hr>
             {loading ? (
                 <div className="loader-wrapper">
                     <div className="loader"></div>
