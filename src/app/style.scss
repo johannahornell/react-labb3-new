@@ -31,6 +31,7 @@ a {
     background-color: #00ceff;
     color: #191a1c;
     font-size: 16px;
+    line-height: 1.4;
     padding: 14px 30px;
     text-decoration: none;
     display: inline-block;
@@ -103,7 +104,7 @@ a {
         .logo-wrapper {
             display: flex;
             align-items: center;
-            margin-right: 40px;
+            margin-right: 50px;
 
             .logo-text {
                 margin-left: 10px;
@@ -150,7 +151,7 @@ a {
                     color: #fff;
                     display: block;
                     text-decoration: none;
-                    padding: 30px 10px;
+                    padding: 27px 10px;
                     margin-bottom: -1px;
                     opacity: 1;
                     transition: 0.4s;
@@ -213,11 +214,11 @@ a {
         background-image: url('../../public/action-background.jpg');
     }
     /* Violet Evergarden background  */
-    &.anime-33352 {
+    &.anime-33352, &.anime-37987, &.anime-39741, &.anime-37095, &.anime-53672 {
         background-image: url('../../public/violet-evergarden-background2.jpg');
     }
     /* Attack on Titan background  */
-    &.anime-16498 {
+    &.anime-16498, &.anime-25777, &.anime-35760, &.anime-38524, &.anime-40028, &.anime-48583, &.anime-25781, &.anime-51535, &.anime-18397, &.anime-36106 {
         background-image: url('../../public/attack-on-titan-background.jpg');
     }
     /* Vinland Saga background  */
@@ -449,6 +450,45 @@ a {
         line-height: 1.2;
         text-align: center;
         margin-bottom: 30px;
+    }
+}
+
+/* ---------- Search form  ---------- */
+.search-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+
+    .search-form {
+        display: flex;
+        border-radius: 30px;
+        transition: 0.4s;
+
+        &:focus-within {
+            box-shadow: 0px 0px 5px 1px rgba(0, 206, 255, 0.6), 0px 0px 18px -1px rgba(0, 206, 255, 0.4)
+        }
+
+        input[type='text'] {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px 12px 10px 20px;
+            border: none;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        input[type='submit'] {
+            border: none;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            min-width: 100px;
+            padding: 10px 12px;
+            cursor: pointer;
+        }
     }
 }
 /* ---------- Single anime info  ---------- */

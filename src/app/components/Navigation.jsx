@@ -70,9 +70,9 @@ const Navigation = () => {
                     <ul>
                         <li>
                             <Link
-                                href="/search"
+                                href="/anime/search"
                                 className={
-                                    pathname == '/search' ? 'active' : ''
+                                    pathname == '/anime/search' ? 'active' : ''
                                 }
                             >
                                 <span>Search</span>{' '}
