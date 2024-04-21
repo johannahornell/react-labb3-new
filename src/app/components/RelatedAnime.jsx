@@ -15,12 +15,12 @@ const RelatedAnime = async ({ id }) => {
 
     return (
         <>
-            <h2>Related anime</h2>
+            <h3>Related anime</h3>
             {filteredRelatedAnime.length === 0
                 ? 'No related anime was found'
                 : filteredRelatedAnime.map((list) => (
                       <div key={list.relation}>
-                          <span className="info-label">{list.relation}</span>
+                          <span className="related-label">{list.relation}</span>
                           <ul>
                               {list.entry.map((item) => (
                                   <li key={item.mal_id}>

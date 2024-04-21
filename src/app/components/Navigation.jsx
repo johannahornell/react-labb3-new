@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 
 const Navigation = () => {
     const [scroll, setScroll] = useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const pathname = usePathname()
 
     useEffect(() => {
@@ -15,16 +16,29 @@ const Navigation = () => {
         })
     }, [scroll])
 
+    useEffect(
+        () => (mobileMenuOpen ? setMobileMenuOpen(false) : void null),
+        [pathname]
+    )
+
+    const toggleMenu = () => {
+        setMobileMenuOpen((prevValue) => !prevValue)
+    }
+
     return (
         <div
-            className={
-                scroll ? 'navigation-wrapper scrolled' : 'navigation-wrapper'
-            }
+            className={`navigation-wrapper ${scroll ? 'scrolled' : ''} ${
+                mobileMenuOpen ? 'mobile-nav-open' : ''
+            }`}
         >
+            <div
+                className="mobile-nav-overlay"
+                onClick={() => toggleMenu()}
+            ></div>
             <div className="navigation-content">
                 <div className="nav-left">
                     <Link href="/" className="logo-wrapper">
-                        <IoTelescope size={'1.8rem'} />
+                        <IoTelescope size={'1.4rem'} className="logo-icon" />
                         <div className="logo-text">
                             <h4>Explore</h4>
                             <h3>Anime</h3>
@@ -82,6 +96,16 @@ const Navigation = () => {
                                     size={'1.4rem'}
                                 />
                             </Link>
+                        </li>
+                        <li className="mobile-nav">
+                            <div
+                                className="hamburger"
+                                onClick={() => toggleMenu()}
+                            >
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </li>
                     </ul>
                 </div>

@@ -14,12 +14,13 @@ const CharacterList = async ({ id }) => {
         (a, b) => b.favorites - a.favorites
     )
 
+    console.log(charactersByFavorite)
     return (
         <div className="character-list-wrapper">
             <h2>Top characters</h2>
             {charactersList.length
                 ? charactersByFavorite
-                      .slice(0, 10)
+                      .slice(0, 6)
                       .map((character) => (
                           <CharacterCard
                               key={character.character.mal_id}

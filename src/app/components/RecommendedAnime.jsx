@@ -9,8 +9,19 @@ const fetchAnimes = async () => {
 }
 
 const RecommendedAnime = async () => {
+    // const [recommendedAnimeList, setRecommendedAnimeList] = useState([])
+    const animeIDs = [16498, 19, 37521, 9253, 46102, 20583, 37510, 40834, 28851, 35839]
     const animesFromServer = await fetchAnimes()
     const animeList = animesFromServer.data.anime
+
+    // const fetchRecommendedAnime = async (id) => {
+    //     const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
+    //     const data = await res.json()
+    //     const animeData = data.data
+    //     setRecommendedAnimeList((prevAnimeList) => [...prevAnimeList, animeData])
+    //     return data
+    // }
+
 
     return (
         <>

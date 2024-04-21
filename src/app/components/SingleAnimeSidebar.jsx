@@ -12,25 +12,25 @@ const SingleAnimeSidebar = async ({ anime }) => {
 
     return (
         <div className="sidebar">
-            <h2>Information</h2>
+            <h3>Information</h3>
             <p>
-                <span className="info-label">Type</span>
-                {anime.type ? <span>{anime.type}</span> : 'Unknown'}
+                <span className="info-label">Type:</span>
+                <span>{anime.type ? anime.type : 'Unknown'}</span>
             </p>
             <p>
-                <span className="info-label">Episodes</span>
-                {anime.episodes ? <span>{anime.episodes}</span> : 'Unknown'}
+                <span className="info-label">Episodes:</span>
+                <span>{anime.episodes ? anime.episodes : 'Unknown'}</span>
             </p>
             <p>
-                <span className="info-label">Duration</span>
-                {anime.duration ? <span>{anime.duration}</span> : 'Unknown'}
+                <span className="info-label">Duration:</span>
+                <span>{anime.duration ? anime.duration : 'Unknown'}</span>
             </p>
             <p>
-                <span className="info-label">Status</span>
-                {anime.status ? <span>{anime.status}</span> : 'Not available'}
+                <span className="info-label">Status:</span>
+                <span>{anime.status ? anime.status : 'Not available'}</span>
             </p>
             <p>
-                <span className="info-label">Aired</span>
+                <span className="info-label">Aired:</span>
                 {anime.aired.string ? (
                     <span>{anime.aired.string}</span>
                 ) : (
@@ -38,11 +38,11 @@ const SingleAnimeSidebar = async ({ anime }) => {
                 )}
             </p>
             <p>
-                <span className="info-label">Source</span>
-                {anime.source ? <span>{anime.source}</span> : 'Unknown'}
+                <span className="info-label">Source:</span>
+                <span>{anime.source ? anime.source : 'Unknown'}</span>
             </p>
             <p>
-                <span className="info-label">Genres</span>{' '}
+                <span className="info-label">Genres:</span>{' '}
                 {anime.genres.length === 0
                     ? 'None found'
                     : anime.genres.map((genre, index) => (
@@ -55,7 +55,7 @@ const SingleAnimeSidebar = async ({ anime }) => {
                 ''
             ) : (
                 <p>
-                    <span className="info-label">Themes</span>{' '}
+                    <span className="info-label">Themes:</span>{' '}
                     {anime.themes.map((theme, index) => (
                         <span key={theme.mal_id}>
                             {(index ? ', ' : '') + theme.name}
@@ -65,7 +65,7 @@ const SingleAnimeSidebar = async ({ anime }) => {
             )}
 
             <p>
-                <span className="info-label">Studios</span>{' '}
+                <span className="info-label">Studios:</span>{' '}
                 {anime.studios.length === 0
                     ? 'None found'
                     : anime.studios.map((studio, index) => (
@@ -74,7 +74,25 @@ const SingleAnimeSidebar = async ({ anime }) => {
                           </span>
                       ))}
             </p>
-            <hr></hr>
+            <h3>Statistics</h3>
+            <p>
+                <span className="info-label">Score:</span>
+                <span>{anime.score === null ? '--' : anime.score}</span>
+            </p>
+            <p>
+                <span className="info-label">Ranked:</span>
+                <span>{anime.rank === null ? '--' : '#' + anime.rank}</span>
+            </p>
+            <p>
+                <span className="info-label">Popularity:</span>
+                <span>
+                    {anime.popularity === null ? '--' : '#' + anime.popularity}
+                </span>
+            </p>
+            <p>
+                <span className="info-label">Favorites:</span>
+                <span>{anime.favorites ? anime.favorites : 'Unknown'}</span>
+            </p>
             <RelatedAnime id={anime.mal_id} />
         </div>
     )
