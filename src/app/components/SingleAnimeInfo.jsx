@@ -2,7 +2,6 @@ import HeaderSingleAnime from './HeaderSingleAnime'
 import SingleAnimeSidebar from './SingleAnimeSidebar'
 import Trailer from './Trailer'
 import CharacterList from './CharacterList'
-import { BsDot } from 'react-icons/bs'
 
 const fetchAnime = async (id) => {
     const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
@@ -26,14 +25,13 @@ const SingleAnimeInfo = async ({ id }) => {
                     <SingleAnimeSidebar anime={anime} />
                     <div className="content">
                         <div className="genre">
-                            {anime.genres.map((genre) => (
+                            {anime.genres.map((genre, index) => (
                                 <span key={genre.mal_id}>
-                                    {genre.name}{' '}
-                                    <BsDot className="dot" size={'1.4rem'} />
+                                    {(index ? ', ' : '') + genre.name}
                                 </span>
                             ))}
                         </div>
-                        <p className='synopsis'>{synopsis}</p>
+                        <p className="synopsis">{synopsis}</p>
                         {anime.trailer.youtube_id ? (
                             <Trailer trailerInfo={anime.trailer} />
                         ) : (

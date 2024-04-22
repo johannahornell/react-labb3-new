@@ -3,11 +3,7 @@ const StatsBox = ({ anime }) => {
         <div className="stats-box">
             <div>
                 <p>Score</p>
-                <span>
-                    {anime.score === null
-                        ? '--'
-                        : (Math.round(anime.score * 10) / 10).toFixed(1)}
-                </span>
+                <span>{anime.score === null ? '--' : anime.score}</span>
             </div>
             <div>
                 <p>Rank</p>

@@ -403,15 +403,16 @@ a {
     /* ----- Generic background  ----- */
     background-image: url('../../public/generic-background.jpg');
     background-size: cover;
+    background-position: center;
     position: relative;
 
     /* Drama & Slice of life background */
     &.genre-8, &.genre-36 {
-        background-image: url('../../public/drama-background.png');
+        background-image: url('../../public/drama-background.jpg');
     }
     /* Mystery background  */
     &.genre-7 {
-        background-image: url('../../public/mystery-background2.jpg');
+        background-image: url('../../public/mystery-background.jpg');
     }
     /* Romance background  */
     &.genre-22 {
@@ -427,7 +428,7 @@ a {
     }
     /* Fantasy background */
     &.genre-10 {
-        background-image: url('../../public/fantasy-background.png');
+        background-image: url('../../public/fantasy-background.jpg');
     }
     /* Action background */
     &.genre-1 {
@@ -435,12 +436,16 @@ a {
     }
     /* Violet Evergarden background  */
     &.anime-33352, &.anime-37987, &.anime-39741, &.anime-37095, &.anime-53672 {
-        background-image: url('../../public/violet-evergarden-background2.jpg');
+        background-image: url('../../public/violet-evergarden-background.jpg');
         background-position: right;
     }
     /* Attack on Titan background  */
     &.anime-16498, &.anime-25777, &.anime-35760, &.anime-38524, &.anime-40028, &.anime-48583, &.anime-25781, &.anime-51535, &.anime-18397, &.anime-36106 {
         background-image: url('../../public/attack-on-titan-background.jpg');
+    }
+    /* Monster background  */
+    &.anime-19 {
+        background-image: url('../../public/monster-background.jpg');
     }
     /* Vinland Saga background  */
     &.anime-37521 {
@@ -453,14 +458,29 @@ a {
     /* Steins Gate background  */
     &.anime-9253 {
         background-image: url('../../public/steins-gate-background.jpg');
+        background-position: 80% 100%;
     }
     /* Mob psycho 100 background  */
-    &.anime-37510 {
+    &.anime-37510, &.anime-32182 {
         background-image: url('../../public/mob-psycho-100-background.jpg');
     }
     /* Ousama Ranking background  */
     &.anime-40834 {
         background-image: url('../../public/ousama-ranking-background.jpg');
+        background-position: 70% 100%;
+    }
+    /* Odd Taxi background  */
+    &.anime-46102 {
+        background-image: url('../../public/odd-taxi-background.jpg');
+    }
+    /* A Place Further Than The Universe background  */
+    &.anime-35839 {
+        background-image: url('../../public/a-place-further-than-the-universe-background.jpg');
+        background-position: 75% 100%;
+    }
+    /* A Silent Voice  */
+    &.anime-28851 {
+        background-image: url('../../public/a-silent-voice-background.jpg');
     }
 
     .overlay {
@@ -529,33 +549,22 @@ a {
         }
 
         .stats-box {
-            margin-left: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            backdrop-filter: blur(10px);
             display: none;
 
             > div {
-                padding: 10px 15px;
-                text-align: center;
-                border-right: 1px solid rgba(255, 255, 255, 0.2);
+                margin-bottom: 15px;
 
                 p {
                     font-family: var(--font-poppins);
                     font-size: 13px;
                     text-transform: uppercase;
                     letter-spacing: 1px;
-                    margin: 0 0 5px 0;
+                    margin: 0!important;
                 }
 
                 span {
-
-                    font-size: 24px;
+                    font-size: 20px;
                     font-weight: 700;
-                }
-
-                &:last-child {
-                    border: none;
                 }
             }
         }
@@ -573,7 +582,6 @@ a {
 
         .information {
             max-width: 700px;
-            margin-top: 10px;
             flex: 1;
 
             .year {
@@ -607,7 +615,7 @@ a {
 
                 span {
                     display: inline-block;
-                    margin-right: 10px;
+                    margin-right: 14px;
 
                     .dot {
                         margin-left: 8px;
@@ -652,6 +660,24 @@ a {
         }
     }
     @media (min-width: 560px) {
+        &.single {
+            .header-anime-content {
+                .information {
+                    .genre {
+                        display: block;
+                    }
+
+                    .stats-box {
+                        flex-direction: row;
+
+                        > div {
+                            margin-bottom: 0;
+                            margin-right: 30px;
+                        }
+                    }
+                }
+            }
+        }
         .header-anime-content {
             padding: 100px 25px 25px 25px;
         }
@@ -661,21 +687,15 @@ a {
             .header-anime-content {
                 padding-top: 140px;
                 padding-bottom: 100px;
-
-                .information {
-                    .genre {
-                        display: block;
-                    }
-                }
             }
         }
         .header-anime-content {
-            padding: 190px 50px 120px 50px;
+            padding: 140px 30px 50px 30px;
 
             .anime-image {
-                width: 330px;
+                width: 250px;
                 display: block;
-                margin-right: 60px;
+                margin-right: 30px;
             }
 
             .top-content {
@@ -695,22 +715,39 @@ a {
                 }
             }
 
-            .information {
-                .year {
-                    display: block;
+            .stats-box {
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 6px;
+                backdrop-filter: blur(10px);
+                margin-left: 20px;
+
+                > div {
+                    padding: 8px 10px;
+                    margin-bottom: 0;
+                    text-align: center;
+                    border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+                    p {
+                        margin: 0 0 5px 0!important;
+                    }
+
+                    &:last-child {
+                        border: none;
+                    }
                 }
+            }
+
+            .information {
                 h2 {
-                    font-size: 46px;
-                    margin: 10px 0 10px 0;
+                    font-size: 38px;
                 }
 
                 h3 {
-                    margin: 0 0 30px;
+                    margin: 0 0 10px;
                 }
 
                 p {
-                    font-size: 16px;
-                    margin: 30px 0;
+                    margin: 20px 0;
 
                     &.synopsis {
                         display: block;
@@ -720,12 +757,85 @@ a {
                 .stats-box {
                     display: none;
                 }
+            }
+        }
+    }
+    @media (min-width: 960px) {
+        .header-anime-content {
+            padding: 190px 50px 120px 50px;
+
+            .anime-image {
+                width: 330px;
+                margin-right: 50px;
+            }
+
+            .stats-box {
+                margin-left: 40px;
+
+                > div {
+                    padding: 10px 15px;
+
+                    span {
+                        font-size: 24px;
+                    }
+                }
+            }
+
+            .information {
+                margin-top: 10px;
+
+                .year {
+                    display: block;
+                }
+                h2 {
+                    font-size: 40px;
+                    margin: 5px 0 5px 0;
+                }
+
+                h3 {
+                    font-size: 22px;
+                    margin: 0 0 20px;
+                }
+
+                p {
+                    font-size: 16px;
+                    margin: 25px 0;
+
+                    &.synopsis {
+                        display: block;
+                    }
+                }
 
                 .extra {
                     display: flex;
                 }
             }
         }
+    }
+    @media (min-width: 1200px) {
+        .header-anime-content {
+            .anime-image {
+                width: 330px;
+                margin-right: 60px;
+            }
+
+            .information {
+                h2 {
+                    font-size: 46px;
+                    margin: 10px 0 10px 0;
+                }
+
+                h3 {
+                    font-size: 24px;
+                    margin: 0 0 30px;
+                }
+
+                p {
+                    margin: 30px 0;
+                }
+            }
+        }
+
     }
 }
 
@@ -749,7 +859,7 @@ a {
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 26px;
         line-height: 1.2;
         text-align: center;
         margin-bottom: 20px;
@@ -762,7 +872,7 @@ a {
         margin-top: 140px;
 
         h1 {
-            font-size: 34px;
+            font-size: 32px;
             margin-bottom: 30px;
         }
     }
@@ -771,6 +881,12 @@ a {
         padding: 0 50px 80px 50px;
         margin-top: 160px;
 
+        h1 {
+            font-size: 34px;
+        }
+    }
+
+    @media (min-width: 1200px) {
         h1 {
             font-size: 38px;
         }
@@ -892,6 +1008,15 @@ a {
             white-space: pre-line;
         }
 
+        .genre {
+
+            span {
+                font-family: var(--font-poppins);
+                font-weight: 600;
+                font-size: 16px;
+            }
+        }
+
         .character-list-wrapper {
             display: flex;
             justify-content: space-between;
@@ -955,36 +1080,44 @@ a {
             }
         }
     }
+    @media (min-width: 560px) {
+        .content {
+            .genre {
+                display: none;
+            }
+        }
 
+    }
     @media (min-width: 768px) {
         background-color: #191a1c;
         border-radius: 10px;
 
         .sidebar {
-            width: 330px;
-            padding: 40px 0 40px 40px;
-            margin-right: 60px;
+            width: 250px;
+            padding: 30px 0 30px 30px;
+            margin-right: 30px;
             order: 0;
 
             h3 {
                margin: 50px 0 15px 0;
             }
         }
+
         .content {
             padding: 40px 40px 40px 0;
             order: 1;
 
-            .synopsis, .genre {
+            .synopsis {
                 display: none;
             }
 
             .character-list-wrapper {
                 .character-card {
                     background-color: #202124;
-                    width: calc(50% - 10px);
+                    width: 100%;
 
                     .character-info {
-                        padding: 25px 25px 20px 30px;
+                        padding: 15px 15px 10px 20px;
 
                         h4 {
                             font-size: 18px;
@@ -996,7 +1129,44 @@ a {
     }
 
     @media (min-width: 960px) {
+        .sidebar {
+            padding: 40px 0 40px 40px;
+            margin-right: 50px;
+            order: 0;
 
+            h3 {
+               margin: 50px 0 15px 0;
+            }
+        }
+
+        .content {
+            .character-list-wrapper {
+                .character-card {
+                    img {
+                        width: 129px;
+                        height: 200px;
+
+                    }
+                    .character-info {
+                        padding: 25px 25px 20px 30px;
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 1200px) {
+        .sidebar {
+            width: 330px;
+            margin-right: 60px;
+        }
+
+        .content {
+            .character-list-wrapper {
+                .character-card {
+                    width: calc(50% - 10px);
+                }
+            }
+        }
     }
 }
 
@@ -1198,6 +1368,22 @@ a {
         .thumbnail-wrapper {
             .overlay {
                 .play-btn {
+                    width: 70px;
+                    height: 70px;
+
+                    .play-icon {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .thumbnail-wrapper {
+            .overlay {
+                .play-btn {
                     width: 100px;
                     height: 100px;
 
@@ -1228,7 +1414,7 @@ a {
     }
 
     .popup {
-        width: 80vw;
+        width: 90vw;
         aspect-ratio: 16 / 9;
 
         .popup-video {
@@ -1237,15 +1423,26 @@ a {
     }
 
     .close-popup {
+        background-color: #191a1c;
         position: absolute;
         top: 0;
         right: 0;
-        padding: 20px;
+        padding: 12px 15px;
         cursor: pointer;
         transition: 0.4s;
 
         &:hover {
-            opacity: 0.7;
+            color: #b9b9b9;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .popup {
+            width: 80vw;
+        }
+
+        .close-popup {
+            padding: 19px 20px;
         }
     }
 }

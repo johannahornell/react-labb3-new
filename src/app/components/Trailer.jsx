@@ -1,13 +1,10 @@
 'use client'
 import { useState } from 'react'
-import Image from 'next/image'
-import { IoPlay, IoClose } from 'react-icons/io5'
+import { IoPlay, IoCloseOutline } from 'react-icons/io5'
 
 const Trailer = ({ trailerInfo }) => {
     const [popupOpen, setPopupOpen] = useState(false)
-    const [trailerUrl, setTrailerUrl] = useState(null)
 
-    const url = trailerInfo.embed_url
     const maximumThumbnail = trailerInfo.images.maximum_image_url
 
     return (
@@ -52,7 +49,7 @@ const Trailer = ({ trailerInfo }) => {
                 </div>
 
                 <div className="close-popup">
-                    <IoClose size={'2.2rem'} />
+                    <IoCloseOutline size={'2.2rem'} />
                 </div>
             </div>
         </div>
