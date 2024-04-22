@@ -7,6 +7,7 @@ const SearchPage = () => {
     const [text, setText] = useState('')
     const [searchedText, setSearchedText] = useState('')
     const inputRef = useRef(null)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         inputRef.current.focus()
@@ -14,13 +15,13 @@ const SearchPage = () => {
 
     const searchAnimes = async (anime) => {
         const res = await fetch(
-            `https://api.jikan.moe/v4/anime?q=${anime}&order_by=popularity&sfw=true`
+            `https://api.jikan.moe/v4/anime?q=${anime}&order_by=popularity&min_score=1&sfw=true`
         )
         const data = await res.json()
         const searchData = data.data
 
         setSearchedAnime(searchData)
-        console.log(searchData)
+        setLoading(false)
     }
 
     const onSubmit = (e) => {
@@ -30,7 +31,7 @@ const SearchPage = () => {
             alert('Write your searchterm first')
             return
         }
-
+        setLoading(true)
         searchAnimes(text)
         setSearchedText(text)
         setText('')
@@ -50,7 +51,11 @@ const SearchPage = () => {
                     <input type="submit" value="Search" className="btn" />
                 </form>
             </div>
-            {searchedText ? (
+            {loading ? (
+                <div className="loader-wrapper">
+                    <div className="loader"></div>
+                </div>
+            ) : searchedText ? (
                 <>
                     <hr></hr>
                     <h3>Search result for &quot;{searchedText}&quot;</h3>
