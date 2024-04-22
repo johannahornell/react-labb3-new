@@ -1,3 +1,4 @@
+import StatsBox from './StatsBox'
 import { BsDot } from 'react-icons/bs'
 
 const HeaderSingleAnime = ({ anime }) => {
@@ -29,32 +30,7 @@ const HeaderSingleAnime = ({ anime }) => {
                                 : anime.title_japanese}
                         </h3>
                     </div>
-                    <div className="stats-box">
-                        <div>
-                            <p>Score</p>
-                            <span>
-                                {anime.score === null
-                                    ? '--'
-                                    : (
-                                          Math.round(anime.score * 10) / 10
-                                      ).toFixed(1)}
-                            </span>
-                        </div>
-                        <div>
-                            <p>Rank</p>
-                            <span>
-                                {anime.rank === null ? '--' : '#' + anime.rank}
-                            </span>
-                        </div>
-                        <div>
-                            <p>Popularity</p>
-                            <span>
-                                {anime.popularity === null
-                                    ? '--'
-                                    : '#' + anime.popularity}
-                            </span>
-                        </div>
-                    </div>
+                    <StatsBox anime={anime} />
                 </div>
                 <div
                     className="anime-image"
@@ -63,6 +39,7 @@ const HeaderSingleAnime = ({ anime }) => {
                     }}
                 ></div>
                 <div className="information">
+                    <StatsBox anime={anime} />
                     <div className="genre">
                         {anime.genres.map((genre) => (
                             <span key={genre.mal_id}>
@@ -71,7 +48,8 @@ const HeaderSingleAnime = ({ anime }) => {
                             </span>
                         ))}
                     </div>
-                    <p>{synopsis}</p>
+
+                    <p className="synopsis">{synopsis}</p>
                 </div>
             </div>
         </div>
