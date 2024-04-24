@@ -23,7 +23,7 @@ const Trailer = ({ trailerInfo }) => {
                     }}
                 >
                     <span className="play-btn">
-                        <IoPlay size={'2rem'} className='play-icon'/>
+                        <IoPlay size={'2rem'} className="play-icon" />
                     </span>
                 </div>
             </div>
