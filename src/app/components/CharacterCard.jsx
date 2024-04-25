@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 const CharacterCard = ({ character }) => {
+    //Only get the japanese voice actors
     const japaneseVoiceActors = character.voice_actors.filter(
         (actor) => actor.language === 'Japanese'
     )
@@ -18,6 +19,7 @@ const CharacterCard = ({ character }) => {
                 <p className="role">{character.role} character</p>
                 <p className="actor">
                     <span className="info-label">Voiced by</span>
+                    {/* If there are more than one voice actor, only show the first one */}
                     {japaneseVoiceActors.slice(0, 1).map((actor) => (
                         <span key={actor.person.mal_id}>
                             {actor.person.name}

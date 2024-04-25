@@ -9,14 +9,15 @@ const Navigation = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const pathname = usePathname()
 
+    //Checks when user has scrolled to add styling
     useEffect(() => {
         window.addEventListener('scroll', () => {
             setScroll(window.scrollY > 5)
         })
     }, [scroll])
 
-    // Closes the menu when switching between pages, gives a warning but code is correct
-    // It should not be dependent on mobileMenuOpen, but it needs to be dependent on pathname too see if the path has changed
+    /* Function that closes the menu when switching between pages, eslint gives a warning but the code is correct,
+     it should not be dependent on mobileMenuOpen, but it needs to be dependent on pathname too see if the path has changed */
     useEffect(
         () => (mobileMenuOpen ? setMobileMenuOpen(false) : void null),
         [pathname]

@@ -8,6 +8,7 @@ const SearchPage = () => {
     const [searchedText, setSearchedText] = useState('')
     const [loading, setLoading] = useState(false)
 
+    //Fetch animes based on search input
     const searchAnimes = async (anime) => {
         const res = await fetch(
             `https://api.jikan.moe/v4/anime?q=${anime}&order_by=popularity&min_score=1&sfw=true`

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { BsDot } from 'react-icons/bs'
 import { IoTimeOutline, IoStarOutline } from 'react-icons/io5'
 
+//Fetch specific anime to showcase on the homepage
 const fetchAnime = async () => {
     const res = await fetch('https://api.jikan.moe/v4/anime/33352')
     const data = await res.json()
@@ -12,6 +13,7 @@ const HeaderStart = async () => {
     const animeFromServer = await fetchAnime()
     const anime = animeFromServer.data
 
+    //Function to shorten the synopsis
     const truncate = (input) => {
         return input.length > 270 ? `${input.substring(0, 268)}...` : input
     }

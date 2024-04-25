@@ -41,7 +41,8 @@ describe('AnimeCard', () => {
 
         expect(heading).toBeInTheDocument()
     })
-
+    //Ceratin fetch calls doesn't include all the anime data, like the one used in mockAnime
+    //Here I make sure that the score-span doesnt get rendered when this happens
     it('should not render score if the data does not have a score value', () => {
         render(<AnimeCard anime={mockAnime} />)
 

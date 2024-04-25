@@ -38,6 +38,7 @@ const CurrentlyAiringPage = () => {
         getCurrentAnimes()
     }, [])
 
+    //Fetch animes that are currently airing
     const fetchCurrentAnimes = async (page) => {
         const res = await fetch(
             `https://api.jikan.moe/v4/seasons/now?page=${page}&limit=25&sfw=true`
@@ -48,7 +49,7 @@ const CurrentlyAiringPage = () => {
         setHasNextPage(data.pagination.has_next_page)
         setLoading(false)
 
-        // Remove duplicates
+        //Fetch call had duplicate animes, this function remove those duplicates
         const ids = animeData.map(({ mal_id }) => mal_id)
         const filteredData = animeData.filter(
             ({ mal_id }, index) => !ids.includes(mal_id, index + 1)

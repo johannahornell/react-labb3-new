@@ -10,6 +10,7 @@ const CharacterList = async ({ id }) => {
     const charactersFromServer = await fetchAnimeCharacters(id)
     const charactersList = charactersFromServer.data
 
+    //Sort character by amount of favorites
     const charactersByFavorite = charactersList.sort(
         (a, b) => b.favorites - a.favorites
     )
@@ -19,6 +20,7 @@ const CharacterList = async ({ id }) => {
             <h2>Top characters</h2>
             {charactersList.length
                 ? charactersByFavorite
+                      //Only show the first six characters
                       .slice(0, 6)
                       .map((character) => (
                           <CharacterCard

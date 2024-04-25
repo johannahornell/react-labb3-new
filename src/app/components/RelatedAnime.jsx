@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+//Fetch animes that are related to current anime, like sequels and spinoffs
 const fetchRelatedAnime = async (id) => {
     const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/relations`)
     const data = await res.json()
@@ -9,6 +10,8 @@ const fetchRelatedAnime = async (id) => {
 const RelatedAnime = async ({ id }) => {
     const relatedAnimeFromServer = await fetchRelatedAnime(id)
     const relatedAnime = relatedAnimeFromServer.data
+
+    //Remove related that are under Adaption, since those are not animes
     const filteredRelatedAnime = relatedAnime.filter(
         (x) => x.relation != 'Adaptation'
     )

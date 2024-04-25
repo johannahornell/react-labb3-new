@@ -15,6 +15,7 @@ const AnimeCard = ({ anime }) => {
                         backgroundImage: `url(${anime.images.jpg.large_image_url})`
                     }}
                 ></div>
+                {/* Duplicate image for cool blur hover effect */}
                 <div
                     className="anime-image hover-background-img"
                     style={{
