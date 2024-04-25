@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import AnimeCard from './AnimeCard'
 
 const mockAnime = {
@@ -41,6 +40,15 @@ describe('AnimeCard', () => {
 
         expect(heading).toBeInTheDocument()
     })
+
+    it('should render a heading with expected title value', () => {
+        render(<AnimeCard anime={mockAnime} />)
+
+        const heading = screen.getByRole('heading', { level: 3 })
+
+        expect(heading).toHaveTextContent('Monster')
+    })
+
     //Ceratin fetch calls doesn't include all the anime data, like the one used in mockAnime
     //Here I make sure that the score-span doesnt get rendered when this happens
     it('should not render score if the data does not have a score value', () => {
