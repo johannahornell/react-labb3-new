@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { GiFuji } from 'react-icons/gi'
 import { IoTelescope, IoSearchOutline } from 'react-icons/io5'
 import { usePathname } from 'next/navigation'
 
@@ -16,6 +15,8 @@ const Navigation = () => {
         })
     }, [scroll])
 
+    // Closes the menu when switching between pages, gives a warning but code is correct
+    // It should not be dependent on mobileMenuOpen, but it needs to be dependent on pathname too see if the path has changed
     useEffect(
         () => (mobileMenuOpen ? setMobileMenuOpen(false) : void null),
         [pathname]

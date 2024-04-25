@@ -1,15 +1,6 @@
 import RelatedAnime from './RelatedAnime'
 
-const fetchRelatedAnime = async (id) => {
-    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/relations`)
-    const data = await res.json()
-    return data
-}
-
 const SingleAnimeSidebar = async ({ anime }) => {
-    const relatedAnimeFromServer = await fetchRelatedAnime(anime.mal_id)
-    const relatedAnime = relatedAnimeFromServer.data
-
     return (
         <div className="sidebar">
             <h3>Information</h3>

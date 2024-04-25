@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { IoStar } from 'react-icons/io5'
 
 const AnimeCard = ({ anime }) => {
-    console.log(anime)
     return (
         <Link
             href={`/anime/${anime.mal_id}`}
