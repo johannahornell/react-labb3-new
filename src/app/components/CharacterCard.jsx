@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const CharacterCard = ({ character }) => {
     //Only get the japanese voice actors
@@ -7,7 +8,11 @@ const CharacterCard = ({ character }) => {
     )
 
     return (
-        <div className="character-card">
+        <Link
+            href={`/character/${character.character.mal_id}`}
+            className="character-card"
+            key={character.character.mal_id}
+        >
             <Image
                 src={character.character.images.jpg.image_url}
                 width={129}
@@ -27,7 +32,7 @@ const CharacterCard = ({ character }) => {
                     ))}
                 </p>
             </div>
-        </div>
+        </Link>
     )
 }
 

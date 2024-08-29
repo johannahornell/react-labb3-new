@@ -2,16 +2,18 @@ import { Inter, Poppins, Viga } from 'next/font/google'
 import './style.scss'
 import Navigation from './components/Navigation'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const poppins = Poppins({
     weight: ['500', '600', '700'],
     subsets: ['latin'],
-    variable: '--font-poppins'
+    variable: '--font-poppins',
+    display: 'swap'
 })
 const viga = Viga({
     weight: ['400'],
     subsets: ['latin'],
-    variable: '--font-viga'
+    variable: '--font-viga',
+    display: 'swap'
 })
 
 export const metadata = {
