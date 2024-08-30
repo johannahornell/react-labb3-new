@@ -1185,6 +1185,148 @@ a {
     }
 }
 
+/* ---------- Single character info  ---------- */
+
+.header-character-wrapper {
+    background-image: url('../../public/character-background.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    .overlay {
+        background-color: rgba(32, 33, 36, 0.75);
+        background: linear-gradient(0deg, rgba(32,33,36,1) 1%, rgba(32,33,36,0.8) 20%, rgba(32,33,36,0.75) 60%, rgba(32,33,36,0.6) 90%);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    &.single {
+        .overlay {
+            background: linear-gradient(0deg, rgb(32, 33, 36) 1%, rgba(32, 33, 36, 0.95) 20%, rgba(32, 33, 36, 0.85) 60%, rgba(32, 33, 36, 0.8) 90%);
+        }
+    }
+
+    .header-character-content {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        position: relative;
+        width: 100%;
+        max-width: 1400px;
+        padding: 100px 20px 20px 20px;
+        margin: 0 auto;
+        z-index: 2;
+
+        .top-content {
+            width: 100%;
+            margin-bottom: 15px;
+
+            h1 {
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 16px;
+                font-weight: 400;
+                margin: 3px 0 0 0;
+            }
+        }
+    }
+
+    @media (min-width: 500px) {
+        .header-character-content {
+            padding: 100px 25px 25px 25px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &.single {
+            .header-character-content {
+                padding-top: 140px;
+                padding-bottom: 100px;
+            }
+        }
+        .header-character-content {
+            padding: 140px 30px 50px 30px;
+
+            .top-content {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                margin-bottom: 20px;
+
+                h3 {
+                    font-size: 18px;
+                    margin: 8px 0 20px 0;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 960px) {
+        .header-character-content {
+            padding: 190px 50px 120px 50px;
+        }
+    }
+}
+.character-info-wrapper {
+    display: flex;
+
+    .character-image {
+        margin-right: 20px;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-wrapper {
+        p {
+
+            &.paragraph-with-label {
+                margin-top: 5px;
+                margin-bottom: 0;
+            }
+
+            .about-label {
+                font-family: var(--font-poppins);
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-right: 5px;
+                opacity: 0.6;
+            }
+        }
+    }
+
+    @media (min-width: 500px) {
+
+    }
+
+    @media (min-width: 768px) {
+        .character-image {
+            margin-right: 30px;
+        }
+    }
+
+    @media (min-width: 960px) {
+        .character-image {
+            margin-right: 50px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .character-image {
+            margin-right: 60px;
+        }
+    }
+}
+
+.character-more-info-wrapper {
+    background-color: #191a1c;
+    padding: 40px;
+    border-radius: 10px;
+}
+
 /* ---------- Pagination  ---------- */
 .pagination-wrapper {
     display: flex;
@@ -1209,6 +1351,26 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    &.small {
+        justify-content: flex-start;
+        
+        .anime-card {
+            width: calc((100%/7) - 20px);
+
+            h3 {
+                font-size: 16px;
+                overflow: auto;
+                white-space: normal;
+            }
+
+            .role {
+                font-size: 15px;
+                opacity: 0.5;
+                margin: 0;
+            }
+        }
+    }
 
     .anime-card {
         color: #ffffff;
