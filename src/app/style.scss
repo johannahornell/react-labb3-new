@@ -487,6 +487,18 @@ a {
     &.anime-28851 {
         background-image: url('../../public/a-silent-voice-background.jpg');
     }
+    /* Suzume  */
+    &.anime-50594 {
+        background-image: url('../../public/suzume-background.jpg');
+    }
+    /* Your name  */
+    &.anime-32281 {
+        background-image: url('../../public/your-name-background.jpg');
+    }
+    /* Made in Abyss  */
+    &.anime-34599 {
+        background-image: url('../../public/made-in-abyss-background.jpg');
+    }
 
     .overlay {
         background-color: rgba(32, 33, 36, 0.75);
@@ -583,6 +595,7 @@ a {
             margin-right: 20px;
             box-shadow: 0 14px 28px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.1);
             display: none;
+            transition: 0.6s;
         }
 
         .information {
@@ -660,6 +673,30 @@ a {
                         margin-right: 8px;
                     }
 
+                }
+            }
+
+            .slider-btn {
+                background: none;
+                color: #fff;
+                padding: 20px 10px;
+                border: none;
+                position: absolute;
+                top: 50%;
+                cursor: pointer;
+                opacity: 0.6;
+                transition: 0.4s;
+
+                &.next {
+                    right: -30px;
+                }
+
+                &.previous {
+                    left: -30px;
+                }
+
+                &:hover {
+                    opacity: 1;
                 }
             }
         }
@@ -1354,7 +1391,7 @@ a {
 
     &.small {
         justify-content: flex-start;
-        
+
         .anime-card {
             width: calc((100%/7) - 20px);
 

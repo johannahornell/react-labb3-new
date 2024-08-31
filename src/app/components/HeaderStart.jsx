@@ -1,16 +1,17 @@
 import Link from 'next/link'
 import { BsDot } from 'react-icons/bs'
 import { IoTimeOutline, IoStarOutline } from 'react-icons/io5'
+import { MdArrowForwardIos } from "react-icons/md";
 
 //Fetch specific anime to showcase on the homepage
-const fetchAnime = async () => {
-    const res = await fetch('https://api.jikan.moe/v4/anime/33352')
+const fetchAnime = async (id) => {
+    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
     const data = await res.json()
     return data
 }
 
 const HeaderStart = async () => {
-    const animeFromServer = await fetchAnime()
+    const animeFromServer = await fetchAnime(33352)
     const anime = animeFromServer.data
 
     //Function to shorten the synopsis
@@ -59,6 +60,7 @@ const HeaderStart = async () => {
                     <Link href={`/anime/${anime.mal_id}`} className="btn">
                         Read more
                     </Link>
+                    <MdArrowForwardIos />
                 </div>
             </div>
         </div>
