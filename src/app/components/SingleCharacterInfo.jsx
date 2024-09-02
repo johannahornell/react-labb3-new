@@ -24,12 +24,12 @@ const SingleCharacterInfo = async ({ id }) => {
     const characterImagesFromServer = await fetchCharacterImages(id)
     const characterImages = characterImagesFromServer.data
 
-    console.log(character.anime)
+    console.log(character)
 
     return (
         <>
             <div className="header-character-wrapper single">
-                <div className='overlay'></div>
+                <div className="overlay"></div>
                 <div className="header-character-content">
                     <div className="top-content">
                         <div>
@@ -37,11 +37,11 @@ const SingleCharacterInfo = async ({ id }) => {
                             <h3>Kanji: {character.name_kanji}</h3>
                         </div>
                         <div>
+                            <p className="alias-label">Also known as</p>
                             {character.nicknames.length === 0 ? (
                                 ''
                             ) : (
-                                <p>
-                                    <span>Nicknames:</span>
+                                <p className='aliases'>
                                     {character.nicknames.map(
                                         (nickname, index) => (
                                             <span key={index}>
@@ -57,7 +57,7 @@ const SingleCharacterInfo = async ({ id }) => {
                 </div>
             </div>
             <div className="main-content-wrapper single">
-                <div className='character-more-info-wrapper'>
+                <div className="character-more-info-wrapper">
                     <CharacterAnimeography characterAnime={character.anime} />
                     <hr />
                     <CharacterVoices />

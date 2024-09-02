@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { ImHeart } from 'react-icons/im'
 
 const CharacterAbout = ({ character }) => {
     const aboutParagraphs = character.about
@@ -19,6 +20,12 @@ const CharacterAbout = ({ character }) => {
                 className="character-image"
             />
             <div className="about-wrapper">
+                <p className="paragraph-with-label">
+                    <span className="about-label icon">
+                        <ImHeart size={'0.9rem'} /> Favorites:
+                    </span>{' '}
+                    {character.favorites}
+                </p>
                 {aboutParagraphs.map((paragraph, index) => {
                     const colonIndex = paragraph.indexOf(':')
 

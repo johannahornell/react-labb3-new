@@ -5,13 +5,14 @@ const CharacterGallery = ({ characterImages }) => {
         <div className="character-gallery">
             <h2>Gallery</h2>
             {characterImages.map((image, index) => (
-                <Image
-                    key={index}
-                    src={image.jpg.image_url}
-                    width={225}
-                    height={350}
-                    alt="Picture of character"
-                />
+                <div className="gallery-card" key={index}>
+                    <Image
+                        src={image.jpg.image_url}
+                        width={220}
+                        height={345}
+                        alt="Picture of character"
+                    />
+                </div>
             ))}
         </div>
     )
