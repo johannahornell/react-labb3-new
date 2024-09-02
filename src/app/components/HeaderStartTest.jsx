@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { BsDot } from 'react-icons/bs'
 import { IoTimeOutline, IoStarOutline } from 'react-icons/io5'
 import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md'
+import { GoDot, GoDotFill } from 'react-icons/go'
 
 const HeaderStartTest = () => {
     const [promotedAnime, setPromotedAnime] = useState([])
@@ -26,12 +27,13 @@ const HeaderStartTest = () => {
     }
 
     const getPreviousAnime = async () => {
-        const previousAnimeIndex = promotedAnimeIndex - 1
+        let previousAnimeIndex = promotedAnimeIndex - 1
         let previousAnimeToload
 
         if (previousAnimeIndex < 0) {
             previousAnimeToload =
                 promotedAnimeList[promotedAnimeList.length - 1]
+            previousAnimeIndex = promotedAnimeList.length - 1
         } else {
             previousAnimeToload = promotedAnimeList[previousAnimeIndex]
         }
@@ -43,11 +45,12 @@ const HeaderStartTest = () => {
     }
 
     const getNextAnime = async () => {
-        const nextAnimeIndex = promotedAnimeIndex + 1
+        let nextAnimeIndex = promotedAnimeIndex + 1
         let nextAnimeToload
 
         if (nextAnimeIndex === promotedAnimeList.length) {
             nextAnimeToload = promotedAnimeList[0]
+            nextAnimeIndex = 0
         } else {
             nextAnimeToload = promotedAnimeList[nextAnimeIndex]
         }
@@ -138,6 +141,18 @@ const HeaderStartTest = () => {
                             onClick={getNextAnime}
                         />
                     </button>
+
+                    <div className="pagination-dots">
+                        {promotedAnimeList.map((position, index) => (
+                            <span key={index}>
+                                {index === promotedAnimeIndex ? (
+                                    <GoDotFill size={'1.4rem'} />
+                                ) : (
+                                    <GoDot size={'1.4rem'} />
+                                )}
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

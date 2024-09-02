@@ -699,6 +699,14 @@ a {
                     opacity: 1;
                 }
             }
+
+            .pagination-dots {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
         }
     }
     @media (min-width: 560px) {
@@ -1129,6 +1137,11 @@ a {
                         text-decoration: underline;
                     }
                 }
+            }
+
+            .character-btn-wrapper {
+                width: 100%;
+                text-align: center;
             }
         }
     }

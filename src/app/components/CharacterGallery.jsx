@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const CharacterGallery = ({ characterImages }) => {
     return (
-        <div>
+        <div className="character-gallery">
             <h2>Gallery</h2>
             {characterImages.map((image, index) => (
                 <Image
