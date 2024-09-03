@@ -41,7 +41,7 @@ const SingleCharacterInfo = async ({ id }) => {
                             {character.nicknames.length === 0 ? (
                                 ''
                             ) : (
-                                <p className='aliases'>
+                                <p className="aliases">
                                     {character.nicknames.map(
                                         (nickname, index) => (
                                             <span key={index}>
@@ -60,7 +60,7 @@ const SingleCharacterInfo = async ({ id }) => {
                 <div className="character-more-info-wrapper">
                     <CharacterAnimeography characterAnime={character.anime} />
                     <hr />
-                    <CharacterVoices />
+                    <CharacterVoices characterVoices={character.voices} />
                     <hr />
                     <CharacterGallery characterImages={characterImages} />
                 </div>

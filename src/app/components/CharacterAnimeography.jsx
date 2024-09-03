@@ -2,7 +2,6 @@ import Image from 'next/image'
 import CharacterAnimeCard from './CharacterAnimeCard'
 
 const CharacterAnimeography = ({ characterAnime }) => {
-    console.log(characterAnime[1].anime.images)
     return (
         <div>
             <h2>Animeography</h2>
